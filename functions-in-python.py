@@ -43,6 +43,38 @@ match even_or_odd(evaluate):                    #match case > the equivalent of 
     case _:
         print("The default option.")
     
+#Return 2 params
+def location(salt):
+    return 100+salt, 200+salt
+
+print(location(4))
+print(location(77))
+print(location(48))
+lat,long = location(345)
+print("Latitude:",lat,",Longitude:",long)
+
+
+#Functions with default params
+def adult(name, age=18):
+    print("The person is",name,"with age",age)
+
+adult("Sashi")
+adult("Swati",25)
+
+#Function wuth variable arguements
+def sum(num1, *num2):       #variable second arguement 
+    result = num1
+    for i in num2:
+        result = result + int(i)
+    print("Sum is",result)
+
+sum(1,2)
+sum(1,2,3)
+sum(1,2,3,4,"5")        #Can take parameter of any type
+
+##Learn about **KWARGS in Python
+#TODO>>
+
 
 #lambda functions >> Later from handbook
 cube_of_number = lambda x:x*x*x                             #One-parameter lambda function
@@ -51,5 +83,8 @@ print("Cube of the number:",cube_of_number(evaluate))
 mult_two_numbers = lambda x,y: x*y                          #Two-parameter lambda function
 print("Multiplication of",evaluate,"and 9 is:",mult_two_numbers(evaluate,9))
 
+
 #Filter, map and reduce: TODO>
+
+
 
