@@ -63,7 +63,6 @@ Honda.show_hydrocar_details()
 
 
 ##Multi-level inheritance: child derived from grandparent
-
 class grand_parent:
     def __init__(self,era):                 #grand_parent constructor
         self.era = era                      #Unused attribute
@@ -129,3 +128,16 @@ Arnold.show_boats()
 Arnold.show_cars()
 Arnold.show_homes()
 Arnold.show_jobs()
+
+##Hybrid Inheritance: When 2 or more inheritance types are used
+class sibling(parent):              #Hybrid inheritance:has sibling(single), and grand parent(multi level)
+    def __init__(self, era, country,sibling):
+        super().__init__(era, country)
+        self.sibling = sibling
+
+    def show_sibling(self):
+        print("My sibling is:",self.sibling)
+
+
+Teesta = sibling("1950s","Jamaica",Arnold)
+Teesta.show_sibling()
