@@ -63,4 +63,69 @@ Honda.show_hydrocar_details()
 
 
 ##Multi-level inheritance: child derived from grandparent
-#TODO>>
+
+class grand_parent:
+    def __init__(self,era):                 #grand_parent constructor
+        self.era = era                      #Unused attribute
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_age(self,age):
+        self.age = age
+
+    def show_name_age(self):                #original overridden method
+        print("My name is:",self.name,"and I am",self.age,"years old!")
+
+class parent(grand_parent):
+    def __init__(self, era,country):        #parent constructor
+        super().__init__(era)
+        self.country = country
+
+    def set_homes(self, homes):
+        self.homes = homes
+    
+    def set_jobs(self, jobs):
+        self.jobs = jobs
+    
+    def show_homes(self):
+        print("I have",self.homes,"homes.")
+    
+    def show_jobs(self):
+        print("I have",self.jobs,"jobs.")
+
+class child(parent):
+    def __init__(self, era, country,origin):            #child constructor
+        super().__init__(era, country)
+        self.origin = origin
+
+    def set_cars(self, cars):
+        self.cars = cars
+
+    def set_boats(self,boats):
+        self.boats = boats
+
+    def show_cars(self):
+        print("I have",self.cars,"cars.")
+
+    def show_boats(self):
+        print("I own",self.boats,"boats.")
+
+    def show_name_age(self):                        #override grand_parent's method
+        grand_parent.show_name_age(self)            #call grand_parent's method
+        print("Overridden: I am",self.name,",",self.age,"years old, from",self.origin,"living in",self.country)
+
+print("Multi-level Inheritance example >>")
+Arnold = child("1940s","Tunisia","Maldives")
+Arnold.set_name("Arnold Auddy")
+Arnold.set_age(34)
+Arnold.set_jobs(2)
+Arnold.set_homes(4)
+Arnold.set_cars(1)
+Arnold.set_boats(1)
+
+Arnold.show_name_age() #call overridden method
+Arnold.show_boats()
+Arnold.show_cars()
+Arnold.show_homes()
+Arnold.show_jobs()
