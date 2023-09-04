@@ -83,6 +83,14 @@ print("Cube of the number:",cube_of_number(evaluate))
 mult_two_numbers = lambda x,y: x*y                          #Two-parameter lambda function
 print("Multiplication of",evaluate,"and 9 is:",mult_two_numbers(evaluate,9))
 
+#Recursive functions
+def total(result=1):
+    if result > 100:return result
+    else: result += 1
+    return total(result)
+
+result = total()
+print("Result of recursion:",result)
 
 #Filter, map and reduce: TODO>
 
